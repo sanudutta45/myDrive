@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import DashedBoard from "../container/DashedBoard";
+import DashedBoard from "../container/Dashboard/DashedBoard";
 import Profile from "../container/Profile";
 import About from "../container/About";
 import NavigationHeader from "../components/NavigationHeader/NavigationHeader";
@@ -20,6 +20,7 @@ function AppRoute(props) {
 
       <Switch>
         <AuthRoute exact path={`${match.url}/dashboard`} component={DashedBoard} />
+        <AuthRoute exact path={`${match.url}/dashboard/folder/:folderId`} component={DashedBoard}/>
         <AuthRoute exact path={`${match.url}/profile`} component={Profile} />
         <AuthRoute exact path={`${match.url}/about`} component={About} />
         <Route path="*" render={() => <Redirect to="/404" />} />

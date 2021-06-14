@@ -15,7 +15,7 @@ import SignUpHeader from "../../components/Header/SignUpHeader";
 function Index(props) {
   const [loading, setLoading] = useState(false);
   const [serverError, setServerError] = useState("");
-  const {history,match} = props;
+  const { history } = props;
 
   const handleSubmit = async (values) => {
     try {
@@ -24,7 +24,7 @@ function Index(props) {
       const res = await signupUser(values);
       setLoading(false);
       props.auth.setToken(res);
-      history.push(`${match.url}/dashboard`);
+      history.push("/app/dashboard");
     } catch (error) {
       setServerError(error.message);
       setLoading(false);
@@ -49,8 +49,8 @@ function Index(props) {
               </Link>
             </div>
             {serverError && (
-            <div className="text-center text-danger">{serverError}</div>
-          )}
+              <div className="text-center text-danger">{serverError}</div>
+            )}
           </div>
         </div>
       </div>

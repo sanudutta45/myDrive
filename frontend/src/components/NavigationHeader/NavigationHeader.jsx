@@ -43,7 +43,7 @@ function NavigationHeader(props) {
             color: "white",
           }}
         >
-          Dashed Board
+          My Drive
         </NavLink>
         <NavLink
            to={`${match.url}/about`}

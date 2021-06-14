@@ -9,7 +9,6 @@ const TextField = ({
   onBlur,
   onChange,
   placeholder,
-  autofocus = false,
   isDisable,
   error,
   maxLength,
@@ -21,7 +20,6 @@ const TextField = ({
       name={name}
       value={value}
       placeholder={placeholder || ""}
-      autoFocus={autofocus}
       onBlur={onBlur}
       onChange={onChange}
       disabled={isDisable}
