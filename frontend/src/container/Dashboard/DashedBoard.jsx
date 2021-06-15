@@ -14,12 +14,10 @@ function DashedBoard(props) {
   const { folderId } = useParams();
   const { state = {} } = useLocation();
 
-  const [{ folder, children }, setReFetchChild] = useFolder(
+  const { folder, children, setReFetchChild } = useFolder(
     folderId,
-    state.folder
+    state && state.folder
   );
-
-  console.log(folder,"folder");
 
   return (
     <section id="dashboard">

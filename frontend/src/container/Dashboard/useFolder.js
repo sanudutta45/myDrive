@@ -89,7 +89,7 @@ const useFolder = (folderId = null, folder = null) => {
     })();
   }, [folderId, reFetchChild]);
 
-  return [state, setReFetchChild];
+  return { ...state, setReFetchChild };
 };
 
 export default useFolder;
