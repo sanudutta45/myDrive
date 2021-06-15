@@ -7,7 +7,7 @@ export const addFolder = async (values) => {
     ss_login_page_api_url + `/api/v1/folder?id=${values.parentId}`;
   const reqObj = {
     name: values.name,
-    // path: values.path ? values.path : [],
+    path: values.path ? values.path : [],
   };
   try {
     const result = await apiCalls("post", url, reqObj);

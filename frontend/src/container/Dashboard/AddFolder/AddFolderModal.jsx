@@ -4,6 +4,9 @@ import { Modal } from "react-bootstrap";
 //actions
 import { addFolder } from "../../../actions/folderAction";
 
+//constant
+import {ROOT_FOLDER} from "../useFolder";
+
 //form
 import AddFolderForm from "./AddFolderForm";
 
@@ -12,9 +15,13 @@ const AddFolderModal = (props) => {
   const [uploading, setUploading] = useState(false);
 
   const handleSubmit = async (values) => {
+    const path = [...props.currentFolder.path];
+    if (props.currentFolder !== ROOT_FOLDER)
+      path.push({ name: props.currentFolder.name, id: props.currentFolder.id });
+
     const folderObj = {
       name: values.name,
-      // path: props.folder.path,
+      path: path,
       parentId: props.currentFolder.id,
     };
     setServerError("");

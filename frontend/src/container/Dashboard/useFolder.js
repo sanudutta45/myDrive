@@ -7,7 +7,7 @@ const ACTIONS = {
   SET_CHILDREN: "set-children",
 };
 
-const ROOT_FOLDER = { name: "Root", id: null, path: [] };
+export const ROOT_FOLDER = { name: "Root", id: null, path: [] };
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.SELECT_FOLDER:

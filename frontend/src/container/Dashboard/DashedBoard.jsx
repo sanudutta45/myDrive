@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 //component
@@ -7,29 +7,30 @@ import AddFolder from "./AddFolder/AddFolder";
 import useFolder from "./useFolder";
 import Folder from "./Folder";
 import File from "./File";
+import FolderBreadCrumbs from "./FolderBreadCrumbs";
 
 function DashedBoard(props) {
   const { user } = props;
   const { folderId } = useParams();
+  const { state = {} } = useLocation();
 
-  const [state, setReFetchChild] = useFolder(folderId);
-  const { folder, children } = state;
+  const [{ folder, children }, setReFetchChild] = useFolder(
+    folderId,
+    state.folder
+  );
 
-  console.log(folder);
+  console.log(folder,"folder");
 
   return (
     <section id="dashboard">
       <Container fluid>
-        <div className="d-flex flex-wrap">
-          <div className="bread-crumb flex-grow-1">myDrive / folder1 /</div>
-          <div>
-            <AddFolder
-              currentUser={user}
-              currentFolder={folder}  
-              // folder={folder}
-              setReFetchChild={setReFetchChild}
-            />
-          </div>
+        <div className="d-flex align-items-center">
+          <FolderBreadCrumbs currentFolder={folder} />
+          <AddFolder
+            currentUser={user}
+            currentFolder={folder}
+            setReFetchChild={setReFetchChild}
+          />
         </div>
 
         <div className="row">

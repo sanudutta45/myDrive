@@ -4,7 +4,7 @@ module.exports = {
   addfolderSchema: {
     body: Joi.object({
       name: Joi.string().required(),
-      // path: Joi.array().required(),
+      path: Joi.array().required(),
     }),
   },
 };
