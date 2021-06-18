@@ -2,16 +2,25 @@ const Folder = require("../models/folder.model");
 
 exports.addFolder = async (req, res) => {
   const { name, path } = req.body;
-  const { id } = req.query;
+  const id = req.query.id === "null" ? null : req.query.id;
 
   const folder = new Folder({
     name: name,
     path: path,
     userId: req.user.sub,
-    parentId: id === "null" ? null : id,
+    parentId: id,
   });
 
   try {
+    const findFolder = await Folder.findOne({
+      userId: req.user.sub,
+      parentId: id,
+      name: name,
+    });
+
+    if (findFolder)
+      return res.status(403).json({ error: "Directory already exists." });
+
     await folder.save();
 
     return res.json({
