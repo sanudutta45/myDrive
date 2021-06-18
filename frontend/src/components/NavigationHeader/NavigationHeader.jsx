@@ -6,7 +6,7 @@ import { NavLink, Link, withRouter } from "react-router-dom";
 function NavigationHeader(props) {
 
   const {match} = props;
-  console.log(props);
+  // console.log(props);
   
   function myFunction() {
     var x = document.getElementById("myTopnav");

@@ -8,6 +8,7 @@ import useFolder from "./useFolder";
 import Folder from "./Folder";
 import File from "./File";
 import FolderBreadCrumbs from "./FolderBreadCrumbs";
+import AddFile from "./AddFile/AddFile";
 
 function DashedBoard(props) {
   const { user } = props;
@@ -24,6 +25,7 @@ function DashedBoard(props) {
       <Container fluid>
         <div className="d-flex align-items-center">
           <FolderBreadCrumbs currentFolder={folder} />
+          <AddFile currentFolder={folder} setReFetchChild={setReFetchChild} />
           <AddFolder
             currentUser={user}
             currentFolder={folder}

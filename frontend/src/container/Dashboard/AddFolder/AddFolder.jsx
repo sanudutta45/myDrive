@@ -10,7 +10,7 @@ const AddFolder = ({ currentFolder, setReFetchChild, folder }) => {
     <Fragment>
       <button
         type="button"
-        className="btn btn-outline-success"
+        className="btn btn-outline-success btn-sm"
         onClick={() => setOpenModal(!openModal)}
       >
         Folder +

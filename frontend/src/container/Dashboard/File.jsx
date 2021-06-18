@@ -1,11 +1,23 @@
-import React from 'react'
+import React from "react";
 
-const File = () => {
-    return (
-        <div>
-            File
-        </div>
-    )
-}
+//components
+import { Button } from "react-bootstrap";
 
-export default File
+const File = ({ file }) => {
+  return (
+    <Button
+      // to={{
+      //   pathname: `/app/dashboard/file/${file._id}`,
+      //   state: { file: file },
+      // }}
+      variant="outline-dark"
+      className="text-truncate w-100"
+      // as={Link}
+    >
+      <i className="fa fa-file mr-2" />
+      {file && file.name}
+    </Button>
+  );
+};
+
+export default File;
