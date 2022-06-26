@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sanudutta45/login-page#readme",
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "concurrently": "^5.3.0"
   }
 }
